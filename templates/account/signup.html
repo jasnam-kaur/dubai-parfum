@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load socialaccount %}
+
+{% block content %}
+<div class="container py-5 mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5 border p-5 bg-dark border-warning login-form-container">
+            <h2 class="text-gold mb-4 text-center">Business Registration</h2>
+            
+            <form method="POST" action="{% url 'account_signup' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-luxury w-100 mt-3">CREATE ACCOUNT</button>
+            </form>
+
+            <div class="text-center mt-4">
+                <hr style="border-color: #444;">
+                <p class="text-secondary small">QUICK REGISTRATION</p>
+                <a href="{% provider_login_url 'google' %}" class="btn btn-outline-warning w-100 py-2">
+                   <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" width="18" class="me-2"> 
+                   Sign up with Google
+                </a>
+                <p class="mt-3 small">Already have an account? <a href="{% url 'account_login' %}" class="text-gold">Sign In</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

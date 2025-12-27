@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 border p-5 bg-dark border-warning">
+            <h2 class="text-gold mb-4">Request a Wholesale Quote</h2>
+            <form>
+                <div class="mb-3">
+                    <input type="text" class="form-control bg-transparent text-white border-secondary" placeholder="Business Name">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-transparent text-white border-secondary" placeholder="Expected Volume (Units)"></textarea>
+                </div>
+                <button type="submit" class="btn btn-luxury w-100">Submit Inquiry</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
