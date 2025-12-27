@@ -14,8 +14,7 @@ SECRET_KEY = 'django-insecure-1&d4cfzhhzr=@w=wu3qfpn-oo7x9ou4hfs8a-&9ok2!syv5roy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dubai-parfum.onrender.com', '127.0.0.1', 'localhost']
-
+ALLOWED_HOSTS = ['dubai-parfum.onrender.com', '127.0.0.1', 'localhost', '.onrender.com']
 # Application definition
 
 INSTALLED_APPS = [
@@ -153,3 +152,5 @@ LOGIN_REDIRECT_URL = 'dashboard_redirect'
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+CSRF_TRUSTED_ORIGINS = ['https://dubai-parfum.onrender.com']
