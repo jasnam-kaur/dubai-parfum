@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-1&d4cfzhhzr=@w=wu3qfpn-oo7x9ou4hfs8a-&9ok2!syv5roy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['dubai-parfum.onrender.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 import dj_database_url
 import os
 
-# Use Postgres on Render, but fallback to SQLite on your Mac
+# If we are on Render, use their Postgres database
 if 'RENDER' in os.environ:
     DATABASES = {
         'default': dj_database_url.config(
@@ -95,6 +95,7 @@ if 'RENDER' in os.environ:
             conn_max_age=600
         )
     }
+# Otherwise, use the simple SQLite file on your Mac
 else:
     DATABASES = {
         'default': {
@@ -102,7 +103,6 @@ else:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
