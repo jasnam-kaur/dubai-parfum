@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="luxury-container">
+    <h1 class="gold-text text-center">Our Collection</h1>
+    <div class="product-grid">
+        {% for perfume in perfumes %}
+        <div class="perfume-card">
+            <div class="image-wrapper">
+                <img src="{{ perfume.image.url }}" alt="{{ perfume.name }}">
+            </div>
+            <div class="card-info">
+                <span class="category-tag">{{ perfume.category }}</span>
+                <h3>{{ perfume.name }}</h3>
+                <p class="description">{{ perfume.description|truncatewords:15 }}</p>
+                <a href="{% url 'get_quote' %}?item={{ perfume.name }}" class="btn-gold">GET QUOTE</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    :root { --matte-black: #1a1a1a; --gold: #c5a059; --off-white: #f9f6f3; }
+    .luxury-container { padding: 50px 5%; background: var(--matte-black); min-height: 100vh; }
+    .gold-text { color: var(--gold); font-family: 'Playfair Display', serif; letter-spacing: 2px; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+    .perfume-card { background: #222; border: 1px solid #333; transition: 0.3s; padding-bottom: 20px; text-align: center; }
+    .perfume-card:hover { border-color: var(--gold); transform: translateY(-5px); }
+    .image-wrapper img { width: 100%; height: 300px; object-fit: cover; }
+    .card-info { padding: 20px; color: var(--off-white); }
+    .category-tag { font-size: 12px; color: var(--gold); text-transform: uppercase; border: 1px solid var(--gold); padding: 2px 8px; }
+    .btn-gold { display: inline-block; margin-top: 15px; padding: 10px 25px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; transition: 0.3s; }
+    .btn-gold:hover { background: var(--gold); color: white; }
+</style>
+{% endblock %}

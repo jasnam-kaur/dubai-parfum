@@ -19,3 +19,24 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return f"{self.username} ({self.role})"
+    
+from django.db import models
+
+class Perfume(models.Model):
+    # Choices for the dropdown in the admin/dashboard
+    CATEGORY_CHOICES = [
+        ('Men', 'Men'),
+        ('Women', 'Women'),
+        ('Unisex', 'Unisex'),
+        ('Oud', 'Premium Oud'),
+    ]
+
+    name = models.CharField(max_length=200)
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
+    description = models.TextField()
+    image = models.ImageField(upload_to='perfumes/')  # Images go to 'media/perfumes/'
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+    

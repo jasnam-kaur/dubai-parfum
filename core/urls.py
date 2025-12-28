@@ -21,6 +21,9 @@ urlpatterns = [
     path('about/', about, name='about'),
     path('categories/', categories, name='categories'),
     path('get-quote/', quote, name='quote'),
+    path('', views.product_list, name='product_list'),
+    path('get-quote/', views.quote_request, name='get_quote'),
+    path('dashboard/', views.owner_dashboard, name='owner_dashboard'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

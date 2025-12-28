@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="form-container">
+    <div class="quote-box">
+        <h2 class="gold-text">Inquiry for {{ item_name }}</h2>
+        <p style="color: #888;">Complete the form below to receive a customized quote.</p>
+        
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <input type="text" name="name" placeholder="Full Name" required>
+            </div>
+            <div class="input-group">
+                <input type="email" name="email" placeholder="Email Address" required>
+            </div>
+            <div class="input-group">
+                <textarea name="message" rows="5">I am interested in receiving a quote for {{ item_name }}. Please provide details on pricing and shipping.</textarea>
+            </div>
+            <button type="submit" class="submit-btn">SEND REQUEST</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    .form-container { background: var(--matte-black); padding: 80px 0; min-height: 100vh; display: flex; justify-content: center; }
+    .quote-box { background: #222; padding: 50px; width: 500px; border-top: 5px solid var(--gold); }
+    .input-group { margin-bottom: 20px; }
+    .input-group input, .input-group textarea { width: 100%; padding: 12px; background: #111; border: 1px solid #333; color: white; border-radius: 0; }
+    .input-group input:focus { border-color: var(--gold); outline: none; }
+    .submit-btn { width: 100%; background: var(--gold); border: none; padding: 15px; color: white; font-weight: bold; cursor: pointer; transition: 0.3s; }
+    .submit-btn:hover { background: #b08d4a; letter-spacing: 1px; }
+</style>
+{% endblock %}
