@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container text-center vh-100 d-flex flex-column justify-content-center">
-    <h1 class="display-1 text-gold">DUBAI PARFUM</h1>
-    <p class="lead">Exquisite Wholesale Scents for Discerning Businesses.</p>
-    <div>
-        <button class="btn btn-luxury px-5 py-3">Explore Collection</button>
+    <div class="hero-section">
+        <h1 class="text-gold">DUBAI PARFUM</h1>
+        <p>Exquisite Wholesale Scents for Discerning Businesses.</p>
+
+        <a href="{% url 'product_list' %}" class="btn-explore">Explore Collection</a>
     </div>
 </div>
 {% endblock %}

@@ -1,9 +1,12 @@
-/* Dubai Parfum Luxury Brand Colors */
+/* =========================================
+   1. LUXURY BRAND CORE & TYPOGRAPHY
+   ========================================= */
 :root {
     --matte-black: #111111;
     --off-white: #FAF9F6;
-    --gold: #D4AF37;
+    --gold: #c5a059;         /* Sophisticated Dubai Gold */
     --deep-gold: #B8972F;
+    --glass-bg: rgba(255, 255, 255, 0.04);
 }
 
 body {
@@ -12,179 +15,202 @@ body {
     font-family: 'Playfair Display', serif;
     margin: 0;
     overflow-x: hidden;
+    line-height: 1.6;
 }
 
-/* Glassmorphism Navbar */
-.glass-nav {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 1200px;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    border-radius: 50px;
-    padding: 15px 30px;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Typography Highlights */
+h1, h2, h3, .text-gold { 
+    color: var(--gold); 
+    letter-spacing: 2px;
 }
 
-.nav-logo {
-    color: var(--gold);
-    font-weight: bold;
-    text-decoration: none;
-    letter-spacing: 3px;
-    font-size: 1.5rem;
-}
-
-.nav-links a {
-    color: var(--off-white);
-    text-decoration: none;
-    margin-left: 20px;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: 0.3s;
-}
-
-.nav-links a:hover { color: var(--gold); }
-
-.btn-gold-sm {
-    background: var(--gold);
-    color: var(--matte-black) !important;
-    padding: 10px 25px;
-    border-radius: 25px;
-    font-weight: bold;
-}
-
-/* Typography and Hero */
-h1, h2, .text-gold { color: var(--gold); }
-
-.hero-section {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-/* Styling the automatic Django form fields */
-input[type="text"], input[type="password"], input[type="email"], textarea {
-    background: transparent !important;
-    border: 1px solid #444 !important;
-    color: var(--off-white) !important;
-    padding: 10px;
-    width: 100%;
-    margin-bottom: 15px;
-    border-radius: 0;
-}
-
-input:focus {
-    border-color: var(--gold) !important;
-    outline: none;
-    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
-}
-
-label {
-    display: block;
-    color: var(--gold);
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-}
-
-/* Fixed Logo on the left */
-.nav-logo-fixed {
-    position: fixed;
-    top: 35px;
-    left: 40px;
-    color: var(--gold);
-    font-weight: bold;
-    text-decoration: none;
-    letter-spacing: 4px;
-    font-size: 1.6rem;
-    z-index: 1100; /* Higher than glass-nav */
-}
-
-/* Force "Forgot Password" to its own line */
-.login-form-container a[href*="password/reset"] {
-    display: block;
-    margin-top: 15px;
-    font-size: 0.85rem;
-    color: var(--gold);
-    text-decoration: none;
-    opacity: 0.8;
-}
-
-.login-form-container a[href*="password/reset"]:hover {
-    opacity: 1;
-    text-decoration: underline;
-}
-
-/* Ensure the glass nav doesn't overlap the logo on small screens */
-@media (max-width: 992px) {
-    .nav-logo-fixed {
-        position: relative;
-        display: block;
-        text-align: center;
-        top: 20px;
-        left: 0;
-    }
-    .glass-nav {
-        margin-top: 20px;
-    }
-}
-
-/* Fixed Brand Logo */
-.brand-logo-fixed {
-    position: fixed;
-    top: 35px;
-    left: 40px;
-    color: var(--gold);
-    font-weight: bold;
-    text-decoration: none;
-    letter-spacing: 4px;
-    font-size: 1.5rem;
-    z-index: 1100;
-}
-
-/* Ensure navbar links are right-aligned */
-.glass-nav .container {
-    max-width: 1200px;
-}
-
-/* Force "Forgot Password" to new line */
-.login-form-container a[href*="password/reset"] {
-    display: block;
-    margin-top: 10px;
-    color: var(--gold);
-    font-size: 0.8rem;
-    text-decoration: none;
-}
-
+/* =========================================
+   2. FIXED BRAND LOGO (Top Left)
+   ========================================= */
 .brand-logo-fixed {
     position: fixed;
     top: 40px;
-    left: 60px;
-    color: #D4AF37; /* The specific Dubai Gold */
+    left: 40px;
+    color: var(--gold);
     font-weight: 800;
     text-decoration: none;
-    letter-spacing: 6px; /* Spaced out letters look more expensive */
+    letter-spacing: 6px;
     font-size: 1.2rem;
     z-index: 1200;
     text-transform: uppercase;
-    border-left: 2px solid #D4AF37; /* Adds a sophisticated vertical line */
+    border-left: 2px solid var(--gold);
     padding-left: 15px;
     transition: all 0.4s ease;
 }
 
 .brand-logo-fixed:hover {
-    letter-spacing: 8px; /* Subtle expansion effect */
-    color: #FAF9F6;
+    letter-spacing: 8px;
+    color: var(--off-white);
+}
+
+/* =========================================
+   3. ULTRA-THIN FLOATING NAV (Bottom)
+   ========================================= */
+.floating-nav-container {
+    position: fixed;
+    bottom: 30px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    z-index: 1000;
+    width: auto;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* The Glass Pill - Reduced Height */
+.glass-nav-pill {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    border-radius: 50px; 
+    padding: 6px 35px; /* Minimal vertical padding for thinness */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Centering links inside the bar */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin: 0; 
+    height: 30px; /* Forces content to stay thin and centered */
+}
+
+.nav-links a {
+    color: var(--off-white);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    line-height: 1;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+    text-shadow: 0 0 10px rgba(197, 160, 89, 0.4);
+}
+
+/* Luxury Login/Logout Button */
+.login-btn-gold {
+    background: var(--gold) !important;
+    color: var(--matte-black) !important;
+    padding: 6px 20px !important;
+    border-radius: 20px !important;
+    font-weight: bold;
+    font-size: 10px !important;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.2);
+    transition: 0.3s !important;
+}
+
+.login-btn-gold:hover {
+    background: var(--deep-gold) !important;
+    transform: scale(1.05);
+}
+
+/* Hover lift effect for the entire bar */
+.floating-nav-container:hover {
+    bottom: 38px;
+    transform: translateX(-50%) scale(1.02);
+}
+
+/* =========================================
+   4. LUXURY FORM STYLING (Login/Inquiry)
+   ========================================= */
+input[type="text"], input[type="password"], input[type="email"], textarea {
+    background: transparent !important;
+    border: 1px solid #333 !important;
+    color: var(--off-white) !important;
+    padding: 12px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 0; /* Sharp edges for luxury feel */
+    font-family: 'Playfair Display', serif;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--gold) !important;
+    outline: none;
+    box-shadow: 0 0 8px rgba(197, 160, 89, 0.2);
+}
+
+label {
+    display: block;
+    color: var(--gold);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   5. RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 768px) {
+    .brand-logo-fixed {
+        top: 20px;
+        left: 20px;
+        font-size: 1rem;
+    }
+    
+    .glass-nav-pill {
+        padding: 6px 20px;
+    }
+    
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-links a {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+}
+
+/* Luxury Hero Button Styling */
+.btn-explore {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 35px;
+    background: transparent;
+    color: var(--gold) !important; /* Forces the gold color */
+    border: 1px solid var(--gold);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.btn-explore:hover {
+    background: var(--gold);
+    color: var(--matte-black) !important;
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
+    transform: translateY(-3px);
+}
+
+/* Centered Hero Title Styling */
+.hero-section h1.text-gold {
+    font-size: 5rem;            /* Significantly increased from default */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 12px;       /* Wide spacing for a premium brand feel */
+    margin-bottom: 10px;
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.2); /* Subtle gold glow */
+}
+
+/* Subtitle adjustment to keep balance */
+.hero-section p {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    opacity: 0.9;
+    margin-bottom: 40px;
 }
